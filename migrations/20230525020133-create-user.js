@@ -27,6 +27,28 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
+    await queryInterface.createTable('parties', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      partyLocation: {
+        type: Sequelize.STRING
+      },
+      partyTitle: {
+        type: Sequelize.STRING
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      }
+    });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('users');

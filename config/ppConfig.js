@@ -3,6 +3,7 @@ const LocalStrategy = require('passport-local').Strategy;
 
 // Database
 const { user } = require('../models');
+const { party } = require('../models');
 
 const STRATEGY = new LocalStrategy({
     usernameField: 'email',         // looks for an email field as the username
