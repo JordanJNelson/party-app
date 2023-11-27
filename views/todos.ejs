@@ -1,0 +1,12 @@
+<div>
+  <h2>To Do</h2>
+  <ul>
+    <% todos.forEach(todo => {%> 
+      <li> 
+        <h5><%=todo.name%>
+        </h5>
+        <%=todo.description%>
+      </li>
+    <%});%>
+  </ul>
+</div>

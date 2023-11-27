@@ -7,9 +7,9 @@ Review the Project 2 requirements and check out some [examples](https://romebell
 In this space below, list **THREE** ideas for your Project 2. For each idea, include [user stories](https://www.atlassian.com/agile/project-management/user-stories) for each idea and a link to the API(s) you want to use for it.
 
 --------------------------------------------------------
-1. 
-2. 
-3.
+1. Party app -- warehouse parties, house parties
+2. Book finder app -- romance books, adventure books
+3. Dinner party app -- local dinner parties
 ---------------------------------------------------------
 
 Make a PR when you're done!
@@ -29,8 +29,10 @@ In the space below:
 ----------------------------------------------------------
 ### User Stories
 
+
 ----------------------------------------------------------
 ### Wireframes
+![Alt text](https://file%252B.vscode-resource.vscode-cdn.net/Users/jordannelson/Desktop/GENERAL-ASSEMBLY/unit-2/party-app/resources/Wireframes.png?version%253D1700617679310)
 
 ----------------------------------------------------------
 

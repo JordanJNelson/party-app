@@ -1,1 +1,10 @@
-<h2>Homepage</h2>
+<div>
+  <h2>Homepage</h2>
+  <ul>
+    <% parties.forEach(party => {%> 
+      <li> 
+        <%=party.name%> at <%=party.location%>
+      </li>
+    <%});%>
+  </ul>
+</div>

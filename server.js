@@ -6,6 +6,8 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
+const { party } = require('./models');
+const { todo } = require('./models');
 
 // environment variables
 SECRET_SESSION = process.env.SECRET_SESSION;
@@ -36,13 +38,20 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/', (req, res) => {
-  res.render('index');
+app.get('/', async (req, res) => {
+const parties = await party.findAll();
+  res.render('index', {parties});
 })
-
+app.get('/todos', isLoggedIn, async (req, res) => {
+  const todos = await todo.findAll();
+    res.render('todos', {todos});
+  })
+  
 app.use('/auth', require('./controllers/auth'));
 
 app.use('/party', require('./controllers/party'));
+app.use('/todo', require('./controllers/todo'));
+
 
 // Add this below /auth controllers
 app.get('/profile', isLoggedIn, (req, res) => {
@@ -51,6 +60,9 @@ app.get('/profile', isLoggedIn, (req, res) => {
 });
 app.get('/create', isLoggedIn, (req, res) => {
   res.render('create')
+})
+app.get('/create-todo', isLoggedIn, (req, res) => {
+  res.render('create-todo')
 })
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
