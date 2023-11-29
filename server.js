@@ -8,6 +8,7 @@ const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const { party } = require('./models');
 const { todo } = require('./models');
+const https = require('https');
 
 // environment variables
 SECRET_SESSION = process.env.SECRET_SESSION;
@@ -64,6 +65,20 @@ app.get('/create', isLoggedIn, (req, res) => {
 app.get('/create-todo', isLoggedIn, (req, res) => {
   res.render('create-todo')
 })
+app.get('/thrones', (req, res) => {
+  https.get('https://www.anapioficeandfire.com/api/books', (apidata) => {
+    var dataArray = []; 
+    apidata.on('data', (data) => {
+      dataArray.push(data)
+    })
+    apidata.on('end', () => {
+      var content = Buffer.concat(dataArray)
+      content = JSON.parse(content.toString())
+      res.render('thrones', {books: content})
+    })
+  })
+})
+
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
   console.log(`🎧 You're listening to the smooth sounds of port ${PORT} 🎧`);

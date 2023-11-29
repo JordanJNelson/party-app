@@ -1,0 +1,11 @@
+<h2>Thrones</h2>
+<ul>
+  <% books.forEach(book => {%> 
+    <li> 
+      <h5><%=book.name%>
+      </h5>
+      <%=book.authors[0]%>, 
+      <%=book.numberOfPages%> pages 
+    </li>
+  <%});%>
+</ul>
